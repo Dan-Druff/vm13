@@ -27,7 +27,7 @@ const router = useRouter();
       const signupResult = await firebaseSignup(email,password,username);
       if(signupResult.status){
         console.log(`Success Signing Up!`);
-        // router.push('/dashboard');
+        router.push('/dashboard');
       }else{
         throw new Error(`Error Signing Up🚦`);
       }

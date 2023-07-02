@@ -1,7 +1,7 @@
 'use client';
 import React, {useContext, useState, useEffect, ReactNode} from "react";
 import { User } from "firebase/auth";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { auth } from "@/firebase/firebaseConfig";
 export interface UserData {
     userId:string,
@@ -23,7 +23,7 @@ export const AuthProvider = ({children}:{children:ReactNode}) => {
     const [currentUser, setCurrentUser] = useState<User | null>(null);
     const [loading,setLoading] = useState<boolean>(true);
     const [userData,setUserData] = useState<UserData | null>(null);
-    const Router = useRouter();
+    // const Router = useRouter();
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             if(user){
@@ -36,13 +36,13 @@ export const AuthProvider = ({children}:{children:ReactNode}) => {
                     }
                 setUserData(reqdData);
                 setCurrentUser(user);
-                Router.push('/dashboard');
+                // Router.push('/dashboard');
 
             }else{
                 setCurrentUser(null);
                 setUserData(null);
                 setLoading(false);
-                Router.push('/');
+                // Router.push('/');
 
             }
             setLoading(false);

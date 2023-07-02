@@ -25,7 +25,7 @@ const LoginPage: React.FC<LoginFormProps> = () => {
         console.log(`Success Logging In Up!`);
         setEmail('');
         setPassword('');
-        // router.push('/dashboard');
+        router.push('/dashboard');
       }else{
         throw new Error(`Error Signing Up🚦`);
       }
